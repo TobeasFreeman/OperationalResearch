@@ -1,11 +1,14 @@
 model ModelName
 	uses "mmxprs"; !gain access to the Xpress-Optimizer solver
 
-
+	setparam("XPRS_MAXTIME",-600) 
+	
 	declarations 
 		Nodes = 1..10
 		
 		Delta: integer
+		Seed: integer
+		
 		b : array(Nodes,Nodes) of mpvar
 		tot_traffic: array(Nodes,Nodes) of mpvar
 		node_traffic: array(Nodes,Nodes,Nodes,Nodes) of mpvar
@@ -14,8 +17,9 @@ model ModelName
 	end-declarations
 	
 	Delta := 3
+	Seed := 4
 
-	setrandseed(4) !set a different seed for each run
+	setrandseed(Seed) !set a different seed for each run
 
 	!  generate a matrix of Uniform[1,10] numbers
 	forall(n,m in Nodes | n <> m) do
@@ -41,9 +45,25 @@ model ModelName
 	end-do
 	forall(i in Nodes, j in Nodes, s in Nodes, d in Nodes) node_traffic(i,j,s,d)<=b(i,j)*t_matrix(s,d)
 	
-	!binary variables
-	
-	
 	!Optimization statement
 	minimize(obj)
+	
+	!Display output
+	writeln("SPLITTED VERSION")
+	writeln("Number of nodes: ", Nodes)
+	writeln("Delta: ", Delta)
+	writeln("Max flow minimized: ",getsol(obj))
+	writeln("Seed :", Seed)
+	
+	forall(i,j in Nodes) do
+		if getsol(b(i,j)) = 1 then
+			writeln("Traffic from node ", i, " and node ", j, " is : ", getsol(tot_traffic(i,j)))
+		else
+			writeln("The link between node ", i, " and node ", j," is not used")
+		end-if
+		end-do
+end-model
+			
+	
+	
 	
