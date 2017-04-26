@@ -1,11 +1,14 @@
 model ModelName
 	uses "mmxprs"; !gain access to the Xpress-Optimizer solver
+	uses "mmsystem";
 
-	setparam("XPRS_MAXTIME",-600) 
+	setparam("XPRS_MAXTIME",-10) 
 	
 	declarations 
 		Nodes = 1..10
-		
+		start_t: real
+		stop_t: real
+		execution_t: real
 		Delta: integer
 		Seed: integer
 		
@@ -15,6 +18,8 @@ model ModelName
 		fmax: mpvar 
 		
 	end-declarations
+	
+	start_t := gettime
 	
 	Delta := 3
 	Seed := 4
@@ -29,6 +34,8 @@ model ModelName
 	
 	! objective function
 	obj:=fmax 
+	
+	
 	
 	!constraints
 	forall(i in Nodes, j in Nodes) tot_traffic(i,j) <= fmax
@@ -45,8 +52,18 @@ model ModelName
 	end-do
 	forall(i in Nodes, j in Nodes, s in Nodes, d in Nodes) node_traffic(i,j,s,d)<=b(i,j)*t_matrix(s,d)
 	
+	
+	
+
 	!Optimization statement
 	minimize(obj)
+	
+	stop_t := gettime
+	
+	
+
+	
+	execution_t := stop_t-start_t
 	
 	!Display output
 	writeln("SPLITTED VERSION")
@@ -54,6 +71,8 @@ model ModelName
 	writeln("Delta: ", Delta)
 	writeln("Max flow minimized: ",getsol(obj))
 	writeln("Seed :", Seed)
+	writeln("Execution time: ", execution_t, " s")  
+	wrtieln("CANTIUS IS COPYING EVERYTHING!")
 	
 	forall(i,j in Nodes) do
 		if getsol(b(i,j)) = 1 then
