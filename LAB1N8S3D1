@@ -1,0 +1,70 @@
+SPLITTED VERSION
+Number of nodes: 1..8
+Delta: 1
+Max flow minimized: 153.723
+Seed :3
+Execution time: 10.361 s
+The link between node 1 and node 1 is not used
+Traffic from node 1 and node 2 is : 141.466
+The link between node 1 and node 3 is not used
+The link between node 1 and node 4 is not used
+The link between node 1 and node 5 is not used
+The link between node 1 and node 6 is not used
+The link between node 1 and node 7 is not used
+The link between node 1 and node 8 is not used
+The link between node 2 and node 1 is not used
+The link between node 2 and node 2 is not used
+The link between node 2 and node 3 is not used
+Traffic from node 2 and node 4 is : 152.381
+The link between node 2 and node 5 is not used
+The link between node 2 and node 6 is not used
+The link between node 2 and node 7 is not used
+The link between node 2 and node 8 is not used
+The link between node 3 and node 1 is not used
+The link between node 3 and node 2 is not used
+The link between node 3 and node 3 is not used
+The link between node 3 and node 4 is not used
+Traffic from node 3 and node 5 is : 135.131
+The link between node 3 and node 6 is not used
+The link between node 3 and node 7 is not used
+The link between node 3 and node 8 is not used
+The link between node 4 and node 1 is not used
+The link between node 4 and node 2 is not used
+The link between node 4 and node 3 is not used
+The link between node 4 and node 4 is not used
+The link between node 4 and node 5 is not used
+The link between node 4 and node 6 is not used
+The link between node 4 and node 7 is not used
+Traffic from node 4 and node 8 is : 133.286
+Traffic from node 5 and node 1 is : 141.976
+The link between node 5 and node 2 is not used
+The link between node 5 and node 3 is not used
+The link between node 5 and node 4 is not used
+The link between node 5 and node 5 is not used
+The link between node 5 and node 6 is not used
+The link between node 5 and node 7 is not used
+The link between node 5 and node 8 is not used
+The link between node 6 and node 1 is not used
+The link between node 6 and node 2 is not used
+The link between node 6 and node 3 is not used
+The link between node 6 and node 4 is not used
+The link between node 6 and node 5 is not used
+The link between node 6 and node 6 is not used
+Traffic from node 6 and node 7 is : 153.309
+The link between node 6 and node 8 is not used
+The link between node 7 and node 1 is not used
+The link between node 7 and node 2 is not used
+Traffic from node 7 and node 3 is : 153.723
+The link between node 7 and node 4 is not used
+The link between node 7 and node 5 is not used
+The link between node 7 and node 6 is not used
+The link between node 7 and node 7 is not used
+The link between node 7 and node 8 is not used
+The link between node 8 and node 1 is not used
+The link between node 8 and node 2 is not used
+The link between node 8 and node 3 is not used
+The link between node 8 and node 4 is not used
+The link between node 8 and node 5 is not used
+Traffic from node 8 and node 6 is : 149.283
+The link between node 8 and node 7 is not used
+The link between node 8 and node 8 is not used
