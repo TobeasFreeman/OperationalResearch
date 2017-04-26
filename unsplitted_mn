@@ -33,27 +33,25 @@ model ModelName
 	!constraints
 	forall(i in Nodes, j in Nodes) do
 	 tot_traffic(i,j) <= fmax
-	 sum(s in Nodes, d in Nodes) node_traffic(i,j,s,d)=tot_traffic(i,j)
-	 b(i,j) is_binary
-	 tot_traffic(i,j) is_integer
+	 sum(s in Nodes, d in Nodes) (node_traffic(i,j,s,d)*t_matrix(s,d))=tot_traffic(i,j)
 	 forall(s,d in Nodes) node_traffic(i,j,s,d) is_binary
 	end-do
 	forall(i in Nodes) sum(j in Nodes) b(i,j) <= Delta
 	forall(j in Nodes) sum(i in Nodes) b(i,j) <= Delta
 	forall(s,d in Nodes) do
 	 forall(i in Nodes | i<> s and i <> d) sum(j in Nodes) node_traffic(i,j,s,d) - sum(j in Nodes) node_traffic(j,i,s,d) = 0
-	 sum(j in Nodes) node_traffic(s,j,s,d)=1
+	 sum(j in Nodes) node_traffic(s,j,s,d)*t_matrix(s,d)=t_matrix(s,d)
 	 sum(j in Nodes) node_traffic(j,s,s,d)=0
-	 sum(j in Nodes) node_traffic(j,d,s,d)=1
+	 sum(j in Nodes) node_traffic(j,d,s,d)*t_matrix(s,d)=t_matrix(s,d)
 	 sum(j in Nodes) node_traffic(d,j,s,d)=0
 	end-do
-	forall(i in Nodes, j in Nodes, s in Nodes, d in Nodes) node_traffic(i,j,s,d)<=b(i,j)*t_matrix(s,d)
+	forall(i in Nodes, j in Nodes, s in Nodes, d in Nodes) node_traffic(i,j,s,d)<=b(i,j)
 	
 	!Optimization statement
 	minimize(obj)
 	
 	!Display output
-	writeln("SPLITTED VERSION")
+	writeln("NON-SPLITTED VERSION")
 	writeln("Number of nodes: ", Nodes)
 	writeln("Delta: ", Delta)
 	writeln("Max flow minimized: ",getsol(obj))
@@ -65,5 +63,5 @@ model ModelName
 		else
 			writeln("The link between node ", i, " and node ", j," is not used")
 		end-if
-		end-do
+	end-do
 end-model
