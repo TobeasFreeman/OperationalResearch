@@ -1,0 +1,21 @@
+SPLITTED VERSION
+Number of nodes: 1..4
+Delta: 3
+Max flow minimized: 6.84663
+Seed :4
+The link between node 1 and node 1 is not used
+Traffic from node 1 and node 2 is : 6.84663
+Traffic from node 1 and node 3 is : 6.84663
+Traffic from node 1 and node 4 is : 6.84663
+Traffic from node 2 and node 1 is : 5.80296
+The link between node 2 and node 2 is not used
+Traffic from node 2 and node 3 is : 5.29635
+Traffic from node 2 and node 4 is : 6.84663
+Traffic from node 3 and node 1 is : 6.56246
+Traffic from node 3 and node 2 is : 6.84663
+The link between node 3 and node 3 is not used
+Traffic from node 3 and node 4 is : 6.47643
+Traffic from node 4 and node 1 is : 3.61669
+Traffic from node 4 and node 2 is : 6.84663
+Traffic from node 4 and node 3 is : 3.51412
+The link between node 4 and node 4 is not used
